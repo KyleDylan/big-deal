@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600i&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    margin: none;
+    padding: none;
+    background-image: url('https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/024011495256/media/14976905162/medium/1581393692/enhance');
+}
+
+.main {
+    text-align: center;
+}
+
+p {
+    opacity: .6;
+    font-weight: 400;
+    font-size: 180px;
+    margin-top: 250px;
+    margin-bottom: none;
+    padding: none;
+    line-height: 180px;
+}
+
+#butt {
+    margin: none;
+    padding: none;
+    opacity: .4;
+    font-weight: 400;
+    font-size: 60px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: none;
+    border-radius: 50;
+    box-shadow: '10px 10px 10px 8px rgba(255, 255, 255, 1)';
+}

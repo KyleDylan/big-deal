@@ -1,0 +1,36 @@
+
+#crypto {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    padding-top: 60px;
+}
+
+img {
+    height: 35px;
+    width: 35px
+}
+
+#cryptoTable {
+    width: 800px;
+}
+
+#cryptoTable td {
+    padding: 5px 5px;
+    color: white;
+    border: 2px solid black;
+    background-color: #4b6876;
+}
+
+.main {
+    margin-left: 20px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.dark {
+    color: white;
+}
+
+.light {
+    color: black;
+}

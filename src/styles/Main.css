@@ -1,0 +1,50 @@
+img {
+    height: 35px;
+    width: 35px
+}
+
+.all {
+    background-color: #4b6876;
+}
+
+.main {
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.added {
+    margin-top: 160px;
+    width: 38%;
+    float: right;
+}
+
+.list {
+    list-style: none;
+}
+
+.list img {
+    height: 50px;
+    width: 50px;
+}
+
+.crypto {
+    display: flex;
+    float: left;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin-top: 30px;
+}
+
+.dark {
+    color: white;
+}
+
+.light {
+    color: black;
+}

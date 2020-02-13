@@ -4,9 +4,9 @@ import Button from '@material-ui/core/Button';
 
 function Home() {
     return(
-        <span class='main'>
-            <p>Coinz<div><Button variant='contained' id='butt'>Get Started</Button></div></p>
-        </span>
+        <div id='main'>
+            <p id='name'>Coinz<div><Button variant='contained' id='butt' href='/crypto'>Get Started</Button></div></p>
+        </div>
     );
 }
 

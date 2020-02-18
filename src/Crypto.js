@@ -4,6 +4,7 @@ import './styles/Crypto.css';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import IconButton from '@material-ui/core/IconButton';
 import {ThemeContext} from './contexts/ThemeContext';
+import { StickyTable, Row, Cell } from 'react-sticky-table';
 
 function Crypto(props) {
     const {isDarkMode} = useContext(ThemeContext);
@@ -12,10 +13,10 @@ function Crypto(props) {
 
     useEffect(() => {
         async function getPrices() {
-            const response = await axios.get("https://api.nomics.com/v1/currencies/ticker?key=07401fbb39ffe42a581721d85011ab9c&ids=BTC,ETH,XRP,USDT,BCH,LTC,EOS,BNB,BSV,XTZ,XLM,TRX,ADA,LEO,XMR,ATOM,LINK,HT,NEO,USDC,MKR,ETC,MIOTA,CRO,HEDG&interval=1d");
+            const response = await axios.get("https://api.nomics.com/v1/currencies/ticker?key=07401fbb39ffe42a581721d85011ab9c&ids=BTC,ETH,XRP,USDT,BCH,LTC,EOS,BNB,BSV,XTZ,XLM,TRX,ADA,XMR,ATOM,LINK,HT,NEO,USDC,MKR,ETC,MIOTA,CRO,HEDG&interval=1d");
             setPrices(response.data);
-            // console.log(response);
-            // console.log(prices);
+            console.log(response);
+            console.log(prices);
         }
         getPrices();
     }, [safe]);
@@ -36,32 +37,28 @@ function Crypto(props) {
             <p className={isDarkMode ? 'dark' : 'light'}>
               Prices for the top 25 crypto currencies by market cap.
             </p>
-          <table id='cryptoTable'>
-            <thead>
-              <tr>
-                <td>Name</td>
-                <td>Symbol</td>
-                <td>Price</td>
-                {/* <td>Change (24hr)</td> */}
-                <td>Market Cap</td>
-                <td>Logo</td>
-                <td>Select</td>
-              </tr>
-            </thead>
-            <tbody>
+          <StickyTable id='cryptoTable'>
+              <Row>
+                <Cell>Name</Cell>
+                <Cell>Symbol</Cell>
+                <Cell>Price</Cell>
+                <Cell>Change (24hr)</Cell>
+                <Cell>Market Cap</Cell>
+                <Cell>Logo</Cell>
+                <Cell>Select</Cell>
+              </Row>
               {prices.map((p) =>
-                <tr key={p.currency}>
-                  <td>{p.name}</td>
-                  <td>{p.currency}</td>
-                  <td>${(p.price  * 1).toFixed(2)}</td>
-                  {/* <td>{(p['1d'].price_change_pct * 100).toFixed(2)} %</td> */}
-                  <td>${numberWithCommas((p.market_cap * 1))}</td>
-                  <td><img src={p.logo_url} alt='logo'></img></td>
-                  <td><IconButton aria-label='select' onClick={e => handleClick(e, p)}><AddCircleIcon /></IconButton></td>
-                </tr>
+                <Row key={p.currency}>
+                  <Cell>{p.name}</Cell>
+                  <Cell>{p.currency}</Cell>
+                  <Cell>${(p.price  * 1).toFixed(2)}</Cell>
+                  <Cell>{(p['1d'].price_change_pct * 100).toFixed(2)} %</Cell>
+                  <Cell>${numberWithCommas((p.market_cap * 1))}</Cell>
+                  <Cell><img src={p.logo_url} alt='logo'></img></Cell>
+                  <Cell><IconButton aria-label='select' onClick={e => handleClick(e, p)}><AddCircleIcon /></IconButton></Cell>
+                </Row>
               )}
-            </tbody>
-          </table>
+          </StickyTable>
         </div>
       </div>
     )

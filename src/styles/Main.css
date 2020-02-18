@@ -1,25 +1,15 @@
 img {
     height: 35px;
-    width: 35px
+    width: 35px;
 }
 
 .all {
-    background-color: #4b6876;
-}
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-.main {
-    margin-left: 20px;
-    font-weight: 400;
-    font-size: 18px;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-}
-
-.added {
-    margin-top: 160px;
-    width: 38%;
-    float: right;
+    width: 100vw;
+    height: 100vh;
 }
 
 .list {
@@ -32,13 +22,40 @@ img {
 }
 
 .crypto {
+    font-weight: 400;
+    font-size: 18px;
     display: flex;
     float: left;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 60%;
-    margin-top: 30px;
+    margin-top: 90px;
+}
+
+#coin {
+    width: 400px;
+    height: 70px;
+    border-radius: 30px;
+    background-color: #dfe3e6;
+    border: 2px solid grey;
+    box-shadow: 3px 3px 5px rgba(0,0,0, 0.6);
+    margin: 15px;
+    justify-content: space-evenly;
+}
+
+#coin:hover {
+    background-color: #c5ccd1;
+    box-shadow: 5px 5px 8px rgba(0,0,0, 0.8);
+
+}
+
+.added {
+    margin-top: 160px;
+    width: 38%;
+    float: right;
+    font-size: 20px;
+    text-align: center;
 }
 
 .dark {

@@ -47,8 +47,9 @@ function NavBar() {
                     <Switch className='switch' onChange={toggleTheme} />
                     <nav>
                     <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/'>{home}</NavLink>
+                    <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/login'>Login</NavLink>
+                    <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/register'>Sign Up</NavLink>
                     <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/crypto'>Crypto</NavLink>
-                    <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/contact'>{contact}</NavLink>
                     <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/saved'>{myList}</NavLink>
                     </nav>
                 </Toolbar>

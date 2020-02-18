@@ -2,34 +2,40 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-size: cover;
     margin: none;
     padding: none;
+}
+
+#main {
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    background-size: cover;
     background-image: url('https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/024011495256/media/14976905162/medium/1581393692/enhance');
 }
 
-.main {
-    text-align: center;
-}
-
-p {
+#name {
     opacity: .6;
     font-weight: 400;
-    font-size: 180px;
-    margin-top: 250px;
-    margin-bottom: none;
+    font-size: 10em;
+    box-sizing: border-box;
+    margin-top: 0;
+    padding-top: 280px;
     padding: none;
-    line-height: 180px;
 }
 
 #butt {
+    font-size: 50px;
     margin: none;
     padding: none;
     opacity: .4;
     font-weight: 400;
-    font-size: 60px;
     font-family: 'Poppins', sans-serif;
     text-transform: none;
-    border-radius: 50;
-    box-shadow: '10px 10px 10px 8px rgba(255, 255, 255, 1)';
+    border-radius: 30px;
+}
+
+#butt:hover {
+    opacity: .9;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, .5);
 }

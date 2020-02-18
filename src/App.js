@@ -7,7 +7,8 @@ import {LanguageProvider} from './contexts/LanguageContext';
 import {ThemeProvider} from './contexts/ThemeContext';
 import Main from './Main';
 import Saved from './Saved';
-
+import Login from './Login';
+import SignUp from './SignUp';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path='/' render={() => <Home />} />
+            <Route exact path='/login' render={() => <Login />} />
+            <Route exact path='/register' render={() => <SignUp />} />
             <Route exact path='/crypto' render={() => <Main />} />
             <Route exact path='/saved' render={() => <Saved />} />
           </Switch>

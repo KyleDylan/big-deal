@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react';
 import Crypto from './Crypto';
 import {ThemeContext} from './contexts/ThemeContext';
 import './styles/Main.css';
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
 
 function Main(){
     const {isDarkMode} = useContext(ThemeContext);
@@ -22,19 +24,22 @@ function Main(){
         window.localStorage.setItem("coins", JSON.stringify(newCoins));
     }
 
-    const removeCoin = coin => {
+    const removeCoin = (e, coin) => {
+        e.preventDefault();
         const newCoins = coins.filter(c => (c.name !== coin.name));
         setCoins(newCoins);
         window.localStorage.setItem("coins", JSON.stringify(newCoins));
     }
 
     const myCoins = coins.map(c => (
-        <li><img src={c.logo_url} alt='logo'></img> {c.name}</li>
+        <div id='coin'>
+            <li><img src={c.logo_url} alt='logo'></img> {c.name}<IconButton aria-label='select' onClick={e => removeCoin(e, c)}><DeleteIcon /></IconButton></li>
+        </div>
     ));
 
         return(
             <div className='all'>
-                <div className='main'>
+                <div>
                     <div className='crypto'>
                         <Crypto addCoin={addCoin} />
                     </div>

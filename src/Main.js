@@ -1,4 +1,6 @@
 import React, {useState, useContext} from 'react';
+import axios from 'axios';
+import { UserContext } from './contexts/UserContext';
 import Crypto from './Crypto';
 import {ThemeContext} from './contexts/ThemeContext';
 import './styles/Main.css';
@@ -7,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 
 function Main(){
     const {isDarkMode} = useContext(ThemeContext);
+    const {userName, loginUser} = useContext(UserContext);
     const [coins, setCoins] = useState(JSON.parse(window.localStorage.getItem('coins') || "[]"));
     
     const numberWithCommas = x => {
@@ -16,6 +19,16 @@ function Main(){
     const addCoin = newCoin => {
         setCoins([...coins, newCoin]);
         window.localStorage.setItem("coins", JSON.stringify(coins));
+        axios.defaults.withCredentials = true;
+        axios.post('http://localhost:3001/coin', {
+            newCoin: newCoin
+    }).then(res => {
+        if(res.status === 200){
+            console.log(res);
+        }
+      }).catch(err => {
+          console.log(err);
+      });
     }
 
     const clear = () => {
@@ -43,7 +56,7 @@ function Main(){
                     <div className='crypto'>
                         <Crypto addCoin={addCoin} />
                     </div>
-                    <div class='added'>
+                    <div className='added'>
                         <p>Currencies Added</p>
                         <ul className='list'>
                             {myCoins}

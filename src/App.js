@@ -5,6 +5,7 @@ import Home from './Home';
 import Navbar from './Navbar';
 import {LanguageProvider} from './contexts/LanguageContext';
 import {ThemeProvider} from './contexts/ThemeContext';
+import {UserProvider} from './contexts/UserContext';
 import Main from './Main';
 import Saved from './Saved';
 import Login from './Login';
@@ -14,16 +15,18 @@ function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Switch>
-            <Route exact path='/' render={() => <Home />} />
-            <Route exact path='/login' render={() => <Login />} />
-            <Route exact path='/register' render={() => <SignUp />} />
-            <Route exact path='/crypto' render={() => <Main />} />
-            <Route exact path='/saved' render={() => <Saved />} />
-          </Switch>
-        </BrowserRouter>
+        <UserProvider>
+          <BrowserRouter>
+            <Navbar />
+            <Switch>
+              <Route exact path='/' render={() => <Home />} />
+              <Route exact path='/login' render={() => <Login />} />
+              <Route exact path='/register' render={() => <SignUp />} />
+              <Route exact path='/crypto' render={() => <Main />} />
+              <Route exact path='/saved' render={() => <Saved />} />
+            </Switch>
+          </BrowserRouter>
+        </UserProvider>
       </LanguageProvider>
     </ThemeProvider>
   );

@@ -15,8 +15,6 @@ function Crypto(props) {
         async function getPrices() {
             const response = await axios.get("https://api.nomics.com/v1/currencies/ticker?key=07401fbb39ffe42a581721d85011ab9c&ids=BTC,ETH,XRP,USDT,BCH,LTC,EOS,BNB,BSV,XTZ,XLM,TRX,ADA,XMR,ATOM,LINK,HT,NEO,USDC,MKR,ETC,MIOTA,CRO,HEDG&interval=1d");
             setPrices(response.data);
-            console.log(response);
-            console.log(prices);
         }
         getPrices();
     }, [safe]);

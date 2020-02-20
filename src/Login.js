@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { UserContext } from './contexts/UserContext';
 import useInputState from './hooks/useInputState';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -42,6 +43,7 @@ const words = {
 
 function Form(props) {
     const {language, changeLanguage} = useContext(LanguageContext);
+    const {userName, loginUser} = useContext(UserContext);
     const {classes} = props;
     const {email, signIn, password, remember} = words[language];
     const [username, handleChange] = useInputState('');
@@ -50,17 +52,19 @@ function Form(props) {
 
     const handleClick = e => {
         e.preventDefault();
-        loginUser(username, passcode);
+        login(username, passcode);
         console.log(username, passcode);
     }
 
-    const loginUser = (username, passcode) => {
+    const login = (username, passcode) => {
         axios.post('http://localhost:3001/login', {
         username: username,
         password: passcode
     }).then(res => {
         if(res.status === 200){
             setRedirect('/crypto');
+            loginUser(res.data.username);
+            console.log(res);
         }
       }).catch(err => {
           console.log(err);

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import { UserContext } from './contexts/UserContext';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
@@ -42,11 +43,12 @@ const words = {
 
 function Form(props) {
     const {language, changeLanguage} = useContext(LanguageContext);
+    const {userName, loginUser} = useContext(UserContext);
     const {classes} = props;
     const {email, signUp, password, remember} = words[language];
 
-    const [username, handleChange, reset] = useInputState('');
-    const [passcode, handlePass, resets] = useInputState('');
+    const [username, handleChange] = useInputState('');
+    const [passcode, handlePass] = useInputState('');
     const [redirect, setRedirect] = useState(null);
 
     const handleClick = e => {
@@ -61,6 +63,7 @@ function Form(props) {
     }).then(res => {
         if(res.status === 200){
             setRedirect('/crypto');
+            loginUser(res.data.username);
         }
       }).catch(err => {
           console.log(err);
@@ -88,9 +91,9 @@ function Form(props) {
                                 <InputLabel htmlFor='email'>{email}</InputLabel>
                                 <Input id='email' value={username} onChange={handleChange} name='username' autoFocus />
                             </FormControl>
-                            <FormControl margin='normal' required fullWidth>
+                            <FormControl margin='normal' required password fullWidth>
                                 <InputLabel htmlFor='password'>{password}</InputLabel>
-                                <Input id='password' value={passcode} onChange={handlePass} name='password' autoFocus />
+                                <Input id='password' value={passcode} onChange={handlePass} name='password' type='password' autoFocus />
                             </FormControl>
                             <FormControlLabel 
                                 control={<Checkbox color='primary' />}

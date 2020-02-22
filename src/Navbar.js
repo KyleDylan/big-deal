@@ -40,7 +40,7 @@ const content = {
 
 function NavBar() {
     const {language} = useContext(LanguageContext);
-    const {userName, loginUser} = useContext(UserContext);
+    const {currentUser, loginUser} = useContext(UserContext);
     const {isDarkMode, toggleTheme} = useContext(ThemeContext);
     const {flag, login, signUp, logout, home, myList} = content[language];
 
@@ -74,11 +74,11 @@ function NavBar() {
                     <nav>
                         <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/'>{home}</NavLink>
                         <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/crypto'>Crypto</NavLink>
-                        {userName ? (
+                        {currentUser ? (
                             <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/saved'>{myList}</NavLink>
                         ): (null)}
                         <span className='right'>
-                            {userName ? (
+                            {currentUser ? (
                                 <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/logout'
                                     onClick={handleClick} >{logout}</NavLink>
                             ) : (

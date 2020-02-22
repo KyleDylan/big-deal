@@ -43,28 +43,31 @@ const words = {
 
 function Form(props) {
     const {language, changeLanguage} = useContext(LanguageContext);
-    const {userName, loginUser} = useContext(UserContext);
+    const {currentUser, loginUser} = useContext(UserContext);
     const {classes} = props;
     const {email, signIn, password, remember} = words[language];
-    const [username, handleChange] = useInputState('');
+    const [user, handleChange] = useInputState('');
     const [passcode, handlePass] = useInputState('');
     const [redirect, setRedirect] = useState(null);
 
     const handleClick = e => {
         e.preventDefault();
-        login(username, passcode);
-        console.log(username, passcode);
+        login(user, passcode);
     }
 
     const login = (username, passcode) => {
-        axios.post('http://localhost:3001/login', {
-        username: username,
-        password: passcode
+        axios('http://localhost:3001/login', {
+            data: {
+                username: username,
+                password: passcode
+            },
+            method: 'post',
+            withCredentials: true
     }).then(res => {
         if(res.status === 200){
             setRedirect('/crypto');
+            // const current = JSON.stringify(res.data.username);
             loginUser(res.data.username);
-            console.log(res);
         }
       }).catch(err => {
           console.log(err);
@@ -72,7 +75,7 @@ function Form(props) {
     }
 
     if(redirect === '/crypto'){
-        return <Redirect to={{ pathname: redirect }} />
+        return <Redirect push to={{ pathname: redirect }} />
     }
 
     return(
@@ -90,12 +93,12 @@ function Form(props) {
                         </Select>
                         <form className={classes.form}>
                             <FormControl margin='normal' required fullWidth>
-                                <InputLabel htmlFor='email'>{email}</InputLabel>
-                                <Input id='email' value={username} onChange={handleChange} name='username' autoFocus />
+                                <InputLabel htmlFor='username'>{email}</InputLabel>
+                                <Input id='email' value={user} onChange={handleChange} name='username' autoFocus />
                             </FormControl>
                             <FormControl margin='normal' required fullWidth>
                                 <InputLabel htmlFor='password'>{password}</InputLabel>
-                                <Input id='password' value={passcode} onChange={handlePass} name='password' autoFocus />
+                                <Input id='password' value={passcode} onChange={handlePass} name='password' />
                             </FormControl>
                             <FormControlLabel 
                                 control={<Checkbox color='primary' />}

@@ -43,7 +43,7 @@ const words = {
 
 function Form(props) {
     const {language, changeLanguage} = useContext(LanguageContext);
-    const {userName, loginUser} = useContext(UserContext);
+    const {currentUser, loginUser} = useContext(UserContext);
     const {classes} = props;
     const {email, signUp, password, remember} = words[language];
 
@@ -57,13 +57,18 @@ function Form(props) {
     }
 
     const createUser = (username, passcode) => {
-        axios.post('http://localhost:3001/register', {
-        username: username,
-        password: passcode
+        axios('http://localhost:3001/register', {
+            data: {
+                username: username,
+                password: passcode
+            },
+            method: 'post',
+            withCredentials: true
     }).then(res => {
         if(res.status === 200){
             setRedirect('/crypto');
             loginUser(res.data.username);
+            console.log(currentUser);
         }
       }).catch(err => {
           console.log(err);
@@ -88,7 +93,7 @@ function Form(props) {
                         </Select>
                         <form className={classes.form}>
                             <FormControl margin='normal' required fullWidth>
-                                <InputLabel htmlFor='email'>{email}</InputLabel>
+                                <InputLabel htmlFor='username'>{email}</InputLabel>
                                 <Input id='email' value={username} onChange={handleChange} name='username' autoFocus />
                             </FormControl>
                             <FormControl margin='normal' required password fullWidth>

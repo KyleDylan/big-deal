@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600i&display=swap');
+
+
+div div .-headerGroups {
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 1;
+}
+
+div div .rt-tbody {
+    font-size: 19px;
+}
+
+.ReactTable {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.myCoins {
+    padding-top: 100px;
+    padding-bottom: 20px;
+    font-size: 55px;
+    font-weight: 600;
+    color: rgb(6, 19, 77, .8);
+}
+
+#borderML {
+    background: #F0F2F0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #000C40, #F0F2F0);
+    background: linear-gradient(to bottom, #000C40, #F0F2F0);
+    height: 514px;
+    width: 1110px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+#total {
+    background: #F0F2F0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #000C40, #F0F2F0);
+    background: linear-gradient(to top, #000C40, #F0F2F0); 
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.rt-tbody {
+    font-size: 18px;
+}
+
+#delete {
+    width: 5px;
+    height: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    background-color: rgb(255,255,255, .01);
+    position: relative;
+    left: 20px;
+    margin: 0;
+}

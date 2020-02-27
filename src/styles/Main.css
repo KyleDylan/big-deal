@@ -1,47 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600i&display=swap');
+
 img {
     height: 35px;
     width: 35px;
 }
 
 .all {
-    background: #bdc3c7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #abbaab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #ffffff, rgb(171, 186, 171)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: 100vw;
     height: 100vh;
-}
-
-.list {
-    list-style: none;
-}
-
-.list img {
-    height: 50px;
-    width: 50px;
-}
-
-.crypto {
-    font-weight: 400;
-    font-size: 18px;
     display: flex;
-    float: left;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    margin-top: 90px;
+    flex-flow: row;
+}
+
+ .crypto {
+    margin-left: 25px;
+}
+
+.title {
+    padding-top: 120px;
+    padding-bottom: 30px;
+    font-size: 40px;
+    font-weight: 600;
+    margin-left: 280px;
+    opacity: .7;
 }
 
 #coin {
-    width: 400px;
-    height: 70px;
-    border-radius: 30px;
+    width: 330px;
+    height: 60px;
+    border-radius: 10px;
     background-color: #dfe3e6;
     border: 2px solid grey;
     box-shadow: 3px 3px 5px rgba(0,0,0, 0.6);
     margin: 15px;
-    justify-content: space-evenly;
+    position: relative;
+    right: 60px;
 }
 
 #coin:hover {
@@ -51,17 +47,31 @@ img {
 }
 
 .added {
-    margin-top: 160px;
-    width: 38%;
     float: right;
     font-size: 20px;
-    text-align: center;
+    position: relative;
+    padding-top: 165px;
+    left: 100px;
 }
 
-.dark {
-    color: white;
+.added p {
+    font-size: 26px;
 }
 
-.light {
-    color: black;
+.list {
+    list-style: none;
+}
+
+.list img {
+    height: 35px;
+    width: 35px;
+    margin-right: 40px;
+}
+
+.button {
+    width: 30px;
+}
+
+.button:hover {
+    width: 30px;
 }

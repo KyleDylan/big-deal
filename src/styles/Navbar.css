@@ -1,6 +1,6 @@
 
 #darkMode {
-    background-color: #262626;
+    background-color: rgb(40, 40, 40);
     width: 100%;
     min-height: 80px;
     padding-top: 8px;
@@ -15,34 +15,54 @@
 
 #title {
     font-size: 30px;
-    margin-left: 20px;
-    color: #88898b;
+    font-weight: 600;
+    padding: none;
+    margin-right: 80px;
+    width: 30px;
+    color: rgb(231, 234, 239);
 }
 
-#dark {
-    margin-left: 35px;
-    text-decoration: none;
-    font-size: 20px;
-    color: rgb(231, 234, 239);
-    font-family: 'Poppins', sans-serif;
+#titleD {
+    font-size: 30px;
     font-weight: 600;
+    padding: none;
+    margin-right: 80px;
+    width: 30px;
+    color: rgb(40, 40, 40);
 }
 
 #navLink {
-    margin-top: 10px;
-    margin-left: 35px;
     text-decoration: none;
     font-size: 20px;
-    color: #262626;
     font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-left: 35px;
+    color: rgb(231, 234, 239);
+}
+
+#navLinkD {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-left: 35px;
+    color: rgb(40, 40, 40);
+}
+
+#lang {
+    color: rgb(231, 234, 239);
+    font-size: 21px;
+    font-weight: 600;
+}
+
+#langD {
+    color: rgb(40, 40, 40);
+    font-size: 21px;
     font-weight: 600;
 }
 
 .switch {
     width: 30px;
-    margin-left: 20px;
-}
-
-.right {
-    margin-left: 600px;
+    padding: none;
+    margin-left: 30px;
 }

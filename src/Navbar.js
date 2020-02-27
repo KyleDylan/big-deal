@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import axios from 'axios';
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 import Switch from "@material-ui/core/Switch";
 import {NavLink} from "react-router-dom";
 import './styles/Navbar.css';
@@ -39,7 +40,7 @@ const content = {
 };
 
 function NavBar() {
-    const {language} = useContext(LanguageContext);
+    const {language, changeLanguage} = useContext(LanguageContext);
     const {currentUser, loginUser} = useContext(UserContext);
     const {isDarkMode, toggleTheme} = useContext(ThemeContext);
     const {flag, login, signUp, logout, home, myList} = content[language];
@@ -64,27 +65,29 @@ function NavBar() {
     return(
             <AppBar position='fixed' id={isDarkMode ? 'darkMode' : 'lightMode'}>
                 <Toolbar>
-                    <IconButton>
-                        <span>{flag}</span>
-                    </IconButton>
-                    <Typography id='title'>
+                    <Typography id={isDarkMode ? 'title' : 'titleD'}>
                         Coinz
                     </Typography>
+                        <Select id={isDarkMode ? 'lang' : 'langD'} value={language} onChange={changeLanguage}>
+                            <MenuItem value='english'>English</MenuItem>
+                            <MenuItem value='spanish'>Spanish</MenuItem>
+                            <MenuItem value='french'>French</MenuItem>
+                        </Select>
                     <Switch className='switch' onChange={toggleTheme} />
                     <nav>
-                        <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/'>{home}</NavLink>
-                        <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/crypto'>Crypto</NavLink>
+                        <NavLink id={isDarkMode ? 'navLink' : 'navLinkD'} exact activeClassName='active-link' to='/'>{home}</NavLink>
+                        <NavLink id={isDarkMode ? 'navLink' : 'navLinkD'} exact activeClassName='active-link' to='/crypto'>Crypto</NavLink>
                         {currentUser ? (
-                            <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/saved'>{myList}</NavLink>
+                            <NavLink id={isDarkMode ? 'navLink' : 'navLinkD'} exact activeClassName='active-link' to='/saved'>{myList}</NavLink>
                         ): (null)}
                         <span className='right'>
                             {currentUser ? (
-                                <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/logout'
+                                <NavLink id={isDarkMode ? 'navLink' : 'navLinkD'} exact activeClassName='active-link' to='/logout'
                                     onClick={handleClick} >{logout}</NavLink>
                             ) : (
                                 <span>
-                                    <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/login'>{login}</NavLink>
-                                    <NavLink id={isDarkMode ? 'dark' : 'navLink'} exact activeClassName='active-link' to='/register'>{signUp}</NavLink>
+                                    <NavLink id={isDarkMode ? 'navLink' : 'navLinkD'} exact activeClassName='active-link' to='/login'>{login}</NavLink>
+                                    <NavLink id={isDarkMode ? 'navLink' : 'navLinkD'} exact activeClassName='active-link' to='/register'>{signUp}</NavLink>
                                 </span>
                             )}
                         </span>

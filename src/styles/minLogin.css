@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600i&display=swap');
+
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+}
+
+body {
+    opacity: 1;
+}
+
+.wrapper {
+	background: #000046;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	position: absolute;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+    overflow: hidden;
+}
+
+.fadeIn {
+    transition-timing-function: ease-in;
+    transform: translateY(85px);
+    font-size: 120px;
+    transition-duration: 1s;
+    font-weight: 200;
+    margin-top: 100px;
+    color: white;
+    font-weight: 300;
+}
+
+.container{
+	max-width: 600px;
+    margin: 0 auto;
+    margin-top: 60px;
+	padding: 80px 0;
+	height: 400px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+	
+.fade {
+	font-size: 85px;
+	transition-duration: 1s;
+	transition-timing-function: ease-out;
+    font-weight: 200;
+    margin-top: 100px;
+    color: white;
+    font-weight: 300;
+}
+
+form {
+	padding: 20px 0;
+	position: relative;
+    z-index: 2;
+}
+	
+input {
+	display: block;
+	outline: 0;
+	border: 1px solid white;
+    background-color: rgb(255, 255, 255, .6);
+    color: white;
+    width: 400px;
+    height: 60px;
+	border-radius: 30px;
+	padding: 10px 15px;
+	margin: 0 auto 10px auto;
+	display: block;
+	text-align: center;
+	font-size: 22px;
+	transition-duration: 0.25s;
+    font-weight: 600;
+}
+		
+input:hover {
+    background-color: rgb(255, 255, 255, 0.8);
+    transition-duration: 0.25s;
+}
+		
+input:focus {
+    background-color: rgb(255, 255, 255, 1);
+    color: black;
+    width: 425px;
+	transition-duration: 0.25s;
+}
+
+button {
+	appearance: none;
+	outline: 0;
+	background-color: white;
+	border: 0;
+	padding: 10px 15px;
+	color: #1CB5E0;
+	border-radius: 30px;
+    width: 400px;
+    height: 60px;
+	cursor: pointer;
+	font-size: 22px;
+    transition-duration: 0.25s;
+    font-weight: 600;
+}
+		
+button:hover {
+    background-color: rgb(245, 247, 249);
+	color: #131392;
+    width: 425px;
+    height: 60px;
+    transition-duration: 0.25s;
+}
+

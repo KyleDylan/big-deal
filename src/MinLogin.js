@@ -8,19 +8,19 @@ import './styles/minLogin.css';
 
 const words = {
     english: {
-        signUp: 'Sign Up!',
+        signIn: 'Sign In',
         userN: 'Username',
         password: 'Password',
-        welcome: 'Welcome',
+        welcome: 'Welcome'
     },
     french: {
-        signUp: "S'Inscrire!",
+        signIn: 'Se Connecter',
         userN: "Nom d'Utilisateur",
         password: 'Mot de Passe',
         welcome: 'Bienvenue',
     },
     spanish: {
-        signUp: 'Registrarse!',
+        signIn: 'Registrarse',
         userN: 'Nombre de Usuario',
         password: 'Contrasena',
         welcome: 'Bienvenido',
@@ -31,7 +31,7 @@ function MinLogin() {
     const {language} = useContext(LanguageContext);
     const {currentUser, loginUser} = useContext(UserContext);
     const [login, setLogin] = useState(false);
-    const {userN, signUp, password, welcome} = words[language];
+    const {userN, signIn, password, welcome} = words[language];
     const [user, handleChange] = useInputState('');
     const [passcode, handlePass] = useInputState('');
     const [redirect, setRedirect] = useState(null);
@@ -42,12 +42,12 @@ function MinLogin() {
         e.preventDefault();
         setLogin(true);
         setTimeout(()=> {
-            createUser(user, passcode);
+            loggingIn(user, passcode);
         }, 1500);
     }
 
-    const createUser = (username, passcode) => {
-        axios('http://localhost:3001/register', {
+    const loggingIn = (username, passcode) => {
+        axios('http://localhost:3001/login', {
             data: {
                 username: username,
                 password: passcode
@@ -58,7 +58,6 @@ function MinLogin() {
         if(res.status === 200){
             setRedirect('/crypto');
             loginUser(res.data.username);
-            console.log(user);
         }
       }).catch(err => {
           console.log(err);
@@ -76,11 +75,11 @@ function MinLogin() {
                     <h1 className='fadeIn'>{welcome}</h1>
                 ) : (
                     <div>
-                        <h1 className='fade'>{signUp}</h1>
+                        <h1 className='fade'>{signIn}</h1>
                         <form className="form" onSubmit={handleSubmit}>
                             <input id='white' value={user} onChange={handleChange} type="text" placeholder={userN} />
                             <input id='white' value={passcode} onChange={handlePass} type="password" placeholder={password} />
-                        <button type="submit" id="login-button">{signUp}</button>
+                        <button type="submit" id="login-button">{signIn}</button>
                         </form>
                     </div>
                 )}

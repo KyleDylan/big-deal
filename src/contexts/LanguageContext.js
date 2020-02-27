@@ -1,5 +1,4 @@
 import React, {createContext, useState} from 'react';
-import '../styles/Language.css';
 
 export const LanguageContext = createContext();
 
